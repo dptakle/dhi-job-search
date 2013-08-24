@@ -15,7 +15,7 @@ function search(queryString) {
 	} else {
 		url = url + "?";
 	}
-	url = url + "random=" + (new Date()).getTime()
+	url = url + "random=" + (new Date()).getTime();
 
 	var newScriptElement = document.createElement("script");
 	newScriptElement.setAttribute("src", url);
@@ -34,12 +34,12 @@ function displayResults(answer) {
 	var answerBuffer = "";
 	var pagingBuffer = "";
 	var answerDiv = document.getElementById("answer");
-	//var resultsDiv = document.getElementById("results");
 
 	var resultsDiv = document.createElement("div");
 	resultsDiv.id = "results";
-	var body = document.getElementsByTagName("body")[0];
-	body.replaceChild(resultsDiv, document.getElementById("results"));
+	//var container = document.getElementsByTagName("body")[0].getElementById("container");
+	var container = document.getElementById("container");
+	container.replaceChild(resultsDiv, document.getElementById("results"));
 	resultsDiv = document.getElementById("results");
 
 	for (var i = 0; i < answer.results.length; i++) {

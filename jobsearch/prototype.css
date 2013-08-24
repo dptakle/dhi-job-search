@@ -2,42 +2,18 @@ body {
 	margin-left: 40px;
 	margin-right: 40px;
 }
-div#sales {
-	background-color: #d9d9d9;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	margin: 10px 0px 0px 0px;
-	padding: 0px;
+div#container {
+	margin-left: auto ;
+	margin-right: auto ;
+	font-family: Courier;
 	border: 1px solid #d9d9d9;
 }
-div.saleItem {
-	font-family: Verdana, Helvetica, sans-serif;
-	color: #434343;
-	padding: 10px;
-}
-div.saleItem:nth-child(2n) {
-	background-color: #fafafa;
-}
-div.saleItem:first-child {
-	-webkit-border-top-left-radius: 6px;
-	-webkit-border-top-right-radius: 6px;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-}
-div.saleItem:last-child {
-	-webkit-border-bottom-left-radius: 6px;
-	-webkit-border-bottom-right-radius: 6px;
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
-}
-
 div#answer {
 	background-color: #ffffff;
 	-webkit-border-radius: 6px;
 	border-radius: 6px;
 	margin: 10px 0px 0px 0px;
 	padding: 0px;
-	font-family: Verdana, Helvetica, sans-serif;
 }
 
 div#results {
@@ -47,9 +23,15 @@ div#results {
 	margin: 10px 0px 0px 0px;
 	padding: 0px;
 	border: 1px solid #d9d9d9;
+	margin-left:  20%;
+}
+div#navbar {
+	float: left;
+	width: 20%;
+	color: #ff0000;
+	border: 1px solid #d9d9d9;
 }
 div.resultItem {
-	font-family: Verdana, Helvetica, sans-serif;
 	color: #434343;
 	padding: 10px;
 }

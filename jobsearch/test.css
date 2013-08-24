@@ -1,0 +1,27 @@
+#container {
+	margin-left: auto ;
+	margin-right: auto ;
+	font-family: Courier;
+	border: 1px solid #d9d9d9;
+}
+
+#header {
+	text-align: center ;
+}
+
+#footer {
+	clear: both ;
+	text-align: center ;
+}
+
+#content {
+	margin-left:  20%;
+	border: 1px solid #d9d9d9;
+}
+#navbar {
+	float: left;
+	width: 20%;
+	color: #ff0000;
+	border: 1px solid #d9d9d9;
+}
+
