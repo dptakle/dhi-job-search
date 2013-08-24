@@ -57,15 +57,15 @@ function displayResults(answer) {
 	answerBuffer += "<p>" + answer.firstDocument + " - " + answer.lastDocument + " of " +  answer.resultCount + " documents found</p>";
 
 	if (typeof(answer.previousUrl) != "undefined") {
-		pagingBuffer += " <div href=\"#\" onclick=\"search('" + answer.previousUrl + "');\">&laquo; prev</div>";
+		pagingBuffer += " <div style=\"float: left;\" href=\"#\" onclick=\"search('" + answer.previousUrl + "');\">&laquo; prev &nbsp;</div>";
 	}
 
 	if (typeof(answer.nextUrl) != "undefined") {
-		pagingBuffer += " <div href=\"#\" onclick=\"search('" + answer.nextUrl + "');\">next &raquo;</div>";
+		pagingBuffer += " <div href=\"#\" onclick=\"search('" + answer.nextUrl + "');\">&nbsp; next &raquo;</div>";
 	}
 
 	if (pagingBuffer.length > 0) {
-		answerBuffer += "<p>" + pagingBuffer + "</p>";
+		answerBuffer += "<p style=\"width: 200px;\">" + pagingBuffer + "<div style=\"clear: both;\" /></p>";
 	}
 
 	console.log(answerBuffer);
