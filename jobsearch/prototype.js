@@ -57,11 +57,11 @@ function displayResults(answer) {
 	answerBuffer += "<p>" + answer.firstDocument + " - " + answer.lastDocument + " of " +  answer.resultCount + " documents found</p>";
 
 	if (typeof(answer.previousUrl) != "undefined") {
-		pagingBuffer += " <div style=\"float: left;\" href=\"#\" onclick=\"search('" + answer.previousUrl + "');\">&laquo; prev &nbsp;</div>";
+		pagingBuffer += " <div style=\"float: left; cursor: pointer;\" href=\"#\" onclick=\"search('" + answer.previousUrl + "');\">&laquo; prev &nbsp;</div>";
 	}
 
 	if (typeof(answer.nextUrl) != "undefined") {
-		pagingBuffer += " <div href=\"#\" onclick=\"search('" + answer.nextUrl + "');\">&nbsp; next &raquo;</div>";
+		pagingBuffer += " <div style=\"cursor: pointer;\" href=\"#\" onclick=\"search('" + answer.nextUrl + "');\">&nbsp; next &raquo;</div>";
 	}
 
 	if (pagingBuffer.length > 0) {
