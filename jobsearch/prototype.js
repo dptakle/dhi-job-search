@@ -1,5 +1,6 @@
 var apiServer = "http://dev.api.dice.com";
 var lastReportTime = 0;
+var currentSearchUrl;
 
 window.onload = init;
 
@@ -27,8 +28,17 @@ function search(queryString) {
 	} else {
 		head.replaceChild(newScriptElement, oldScriptElement);
 	}
+
+	currentSearchUrl = queryString;
 }
 
+function displayCurrentUrl() {
+	alert(currentSearchUrl);
+}
+
+function searchWithText() {
+	alert("keyword: " + document.getElementById('keyword').value);
+}
 function displayResults(answer) {
 	var answerBuffer = "";
 	var pagingBuffer = "";
