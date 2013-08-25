@@ -8,7 +8,6 @@ function init() {
 }
 
 function search(queryString) {
-	console.log("search() called");
 	var url = apiServer + queryString;
 	if (url.indexOf("?") > -1){
 		url = url + "&";
@@ -37,22 +36,22 @@ function displayResults(answer) {
 
 	var resultsDiv = document.createElement("div");
 	resultsDiv.id = "results";
-	//var container = document.getElementsByTagName("body")[0].getElementById("container");
 	var container = document.getElementById("container");
 	container.replaceChild(resultsDiv, document.getElementById("results"));
 	resultsDiv = document.getElementById("results");
 
 	for (var i = 0; i < answer.results.length; i++) {
+		var previousResult;
 		var result = answer.results[i];
 		var div = document.createElement("div");
 		div.setAttribute("class", "resultItem");
 		div.innerHTML = "<a href=\"" + result.detailUrl + "\" target=\"dicedetail\">" + result.jobTitle + "</a> " + result.company + " " + result.location;
-		
 		if (resultsDiv.childElementCount == 0) {
 			resultsDiv.appendChild(div);
 		} else {
-			resultsDiv.insertBefore(div, resultsDiv.firstChild);
+			insertAfter(div, previousResult);
 		}
+		previousResult = div;
 	}
 	answerBuffer += "<p>" + answer.firstDocument + " - " + answer.lastDocument + " of " +  answer.resultCount + " documents found</p>";
 
@@ -68,8 +67,54 @@ function displayResults(answer) {
 		answerBuffer += "<p style=\"width: 200px;\">" + pagingBuffer + "<div style=\"clear: both;\" /></p>";
 	}
 
-	console.log(answerBuffer);
 	answerDiv.innerHTML = answerBuffer;
+
+	displayFacets(answer.facets);
+}
+
+function displayFacets(facets) {
+	console.log("facets.length=" + facets.length);
+	var navbarDiv = document.createElement("div");
+	navbarDiv.id = "navbar";
+	var container = document.getElementById("container");
+	container.replaceChild(navbarDiv, document.getElementById("navbar"));
+	navbarDiv = document.getElementById("navbar");
+
+	for (var i = 0; i < facets.length; i++) {
+		console.log(facets[i].name);
+		var previousFacet;
+		var facet = facets[i];
+		var div = document.createElement("div");
+		div.setAttribute("class", "facet");
+		div.innerHTML = "<strong>" + facet.name + "</strong>";
+		displayFacet(facets[i], div);
+		if (navbarDiv.childElementCount == 0) {
+			navbarDiv.appendChild(div);
+		} else {
+			insertAfter(div, previousFacet);
+		}
+		previousFacet = div;
+	}
+}
+
+function displayFacet(facet, facetDiv) {
+	var facetItem;
+	var li;
+	var previousItem;
+	var ul = document.createElement("ul");
+	for (var i = 0; i < facet.facetItems.length; i++) {
+		facetItem = facet.facetItems[i];
+		console.log("> " + facetItem.name + "(" + facetItem.count + ")");
+		li = document.createElement("li");
+		li.innerHTML = facetItem.name + "(" + facetItem.count + ")";
+		if (typeof(previousItem) == "undefined") {
+			ul.appendChild(li);
+		} else {
+			insertAfter(li, previousItem);
+		}
+		previousItem = li;
+	}
+	facetDiv.appendChild(ul);
 }
 
 //create function, it expects 2 values.

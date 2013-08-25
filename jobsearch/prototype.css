@@ -6,7 +6,7 @@ div#container {
 	margin-left: auto ;
 	margin-right: auto ;
 	font-family: Courier;
-	border: 1px solid #d9d9d9;
+	/*border: 1px solid #d9d9d9;*/
 }
 div#answer {
 	background-color: #ffffff;
@@ -15,7 +15,6 @@ div#answer {
 	margin: 10px 0px 0px 0px;
 	padding: 0px;
 }
-
 div#results {
 	background-color: #d9d9d9;
 	-webkit-border-radius: 6px;
@@ -23,13 +22,7 @@ div#results {
 	margin: 10px 0px 0px 0px;
 	padding: 0px;
 	border: 1px solid #d9d9d9;
-	margin-left:  20%;
-}
-div#navbar {
-	float: left;
-	width: 20%;
-	color: #ff0000;
-	border: 1px solid #d9d9d9;
+	margin-left:  25%;
 }
 div.resultItem {
 	color: #434343;
@@ -49,4 +42,13 @@ div.resultItem:last-child {
 	-webkit-border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
+}
+div#navbar {
+	float: left;
+	width: 25%;
+	border: 1px solid #d9d9d9;
+}
+div.facet {
+	color: #434343;
+	padding: 10px;
 }
