@@ -73,7 +73,6 @@ function displayResults(answer) {
 }
 
 function displayFacets(facets) {
-	console.log("facets.length=" + facets.length);
 	var navbarDiv = document.createElement("div");
 	navbarDiv.id = "navbar";
 	var container = document.getElementById("container");
@@ -81,7 +80,6 @@ function displayFacets(facets) {
 	navbarDiv = document.getElementById("navbar");
 
 	for (var i = 0; i < facets.length; i++) {
-		console.log(facets[i].name);
 		var previousFacet;
 		var facet = facets[i];
 		var div = document.createElement("div");
@@ -104,8 +102,9 @@ function displayFacet(facet, facetDiv) {
 	var ul = document.createElement("ul");
 	for (var i = 0; i < facet.facetItems.length; i++) {
 		facetItem = facet.facetItems[i];
-		console.log("> " + facetItem.name + "(" + facetItem.count + ")");
 		li = document.createElement("li");
+		li.setAttribute("onclick", "search('" + facetItem.url + "');");
+		li.setAttribute("class", "facetItem");
 		li.innerHTML = facetItem.name + "(" + facetItem.count + ")";
 		if (typeof(previousItem) == "undefined") {
 			ul.appendChild(li);

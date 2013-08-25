@@ -52,3 +52,6 @@ div.facet {
 	color: #434343;
 	padding: 10px;
 }
+li.facetItem {
+	cursor: pointer;
+}
