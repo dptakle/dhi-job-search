@@ -39,7 +39,33 @@ function displayCurrentUrl() {
 }
 
 function searchWithText() {
-	alert("keyword: " + document.getElementById('keyword').value);
+	var wrk = currentSearchUrl.split("?");
+	var query = ""
+	if (wrk.length == 2) {
+		var params = wrk[1].split("&");
+		for (var i = 0; i < params.length; i++) {
+			if (params[i].indexOf("random=") == -1 && params[i].indexOf("page=") == -1) {
+				if (query.length == 0) {
+					query += "?";
+				} else {
+					query += "&";
+				}
+				query += params[i];
+			}
+		}
+
+		if (query.length == 0) {
+			query += "?";
+		} else {
+			query += "&";
+		}
+		query += "text=";
+		query += encodeURIComponent(document.getElementById('keyword').value);
+		query = "/job-search/query.js" + query;
+		search(query);
+	} else {
+		console.log("wrk length is " + wrk.length);
+	}
 }
 
 function displayResults(answer) {
@@ -200,13 +226,13 @@ function displayFacet(facet, facetDiv) {
 }
 
 function insertAfter(newElement,targetElement) {
-    var parent = targetElement.parentNode;
+	var parent = targetElement.parentNode;
 
-    if (parent.lastchild == targetElement) {
-        parent.appendChild(newElement);
-    } else {
-        parent.insertBefore(newElement, targetElement.nextSibling);
-    }
+	if (parent.lastchild == targetElement) {
+		parent.appendChild(newElement);
+	} else {
+		parent.insertBefore(newElement, targetElement.nextSibling);
+	}
 }
 
 function expandFacet(id) {
