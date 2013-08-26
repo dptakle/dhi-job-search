@@ -40,6 +40,7 @@ function displayCurrentUrl() {
 function searchWithText() {
 	alert("keyword: " + document.getElementById('keyword').value);
 }
+
 function displayResults(answer) {
 	var answerBuffer = "";
 	var pagingBuffer = "";
@@ -84,11 +85,12 @@ function displayResults(answer) {
 }
 
 function displayFacets(facets) {
-	var navbarDiv = document.createElement("div");
-	navbarDiv.id = "navbar";
-	var container = document.getElementById("container");
-	container.replaceChild(navbarDiv, document.getElementById("navbar"));
-	navbarDiv = document.getElementById("navbar");
+	var labelDiv;
+	var refinementDiv = document.createElement("div");
+	refinementDiv.id = "refinement";
+	var navbar = document.getElementById("navbar");
+	navbar.replaceChild(refinementDiv, document.getElementById("refinement"));
+	refinementDiv = document.getElementById("refinement");
 
 	for (var i = 0; i < facets.length; i++) {
 		var previousFacet;
@@ -97,8 +99,11 @@ function displayFacets(facets) {
 		div.setAttribute("class", "facet");
 		div.innerHTML = "<strong>" + facet.name + "</strong>";
 		displayFacet(facets[i], div);
-		if (navbarDiv.childElementCount == 0) {
-			navbarDiv.appendChild(div);
+		if (refinementDiv.childElementCount == 0) {
+			labelDiv = document.createElement("h3");
+			labelDiv.innerHTML = "Refinements";
+			refinementDiv.appendChild(labelDiv);
+			insertAfter(div, labelDiv);
 		} else {
 			insertAfter(div, previousFacet);
 		}
