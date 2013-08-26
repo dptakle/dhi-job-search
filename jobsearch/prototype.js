@@ -32,10 +32,11 @@ function search(queryString) {
 	}
 
 	currentSearchUrl = queryString;
+	displayCurrentUrl();
 }
 
 function displayCurrentUrl() {
-	alert(currentSearchUrl);
+	console.log(currentSearchUrl);
 }
 
 function searchWithText() {
