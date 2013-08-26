@@ -55,3 +55,14 @@ div.facet {
 li.facetItem {
 	cursor: pointer;
 }
+
+div.breadcrumb {
+	color: #434343;
+	padding: 10px;
+}
+li.breadCrumbItem {
+	/*cursor: pointer;*/
+}
+span.breadCrumbItem {
+	cursor: pointer;
+}

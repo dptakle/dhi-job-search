@@ -2,11 +2,12 @@ var apiServer = "http://dev.api.dice.com";
 var lastReportTime = 0;
 var currentSearchUrl;
 var expandedFacet = '';
+var expandedBreadCrumb = '';
 
 window.onload = init;
 
 function init() {
-	search("/job-search/query.js?page=1&sort=1&sd=d&callback=displayResults");
+	search("/job-search/query.js?page=1&pgcnt=30&callback=displayResults");
 }
 
 function search(queryString) {
@@ -81,7 +82,67 @@ function displayResults(answer) {
 
 	answerDiv.innerHTML = answerBuffer;
 
-	displayFacets(answer.facets);
+	if (typeof(answer.breadCrumb) != "undefined") {
+		displayBreadCrumbs(answer.breadCrumb);
+	}
+
+	if (typeof(answer.facets) != "undefined") {
+		displayFacets(answer.facets);
+	}
+}
+
+function displayBreadCrumbs(breadcrumbs) {
+	var labelDiv;
+	var breadcrumbDiv = document.createElement("div");
+	breadcrumbDiv.id = "breadcrumb";
+	var navbar = document.getElementById("navbar");
+	navbar.replaceChild(breadcrumbDiv, document.getElementById("breadcrumb"));
+	breadcrumbDiv = document.getElementById("breadcrumb");
+
+	for (var i = 0; i < breadcrumbs.length; i++) {
+		var previousBreadcrumb;
+		var breadcrumb = breadcrumbs[i];
+		var div = document.createElement("div");
+		div.setAttribute("class", "breadcrumb");
+		div.innerHTML = "<strong>" + breadcrumb.name + "</strong>";
+		displayBreadCrumb(breadcrumbs[i], div);
+		if (breadcrumbDiv.childElementCount == 0) {
+			labelDiv = document.createElement("h3");
+			labelDiv.innerHTML = "Current search";
+			breadcrumbDiv.appendChild(labelDiv);
+			insertAfter(div, labelDiv);
+		} else {
+			insertAfter(div, previousBreadcrumb);
+		}
+		previousBreadcrumb = div;
+	}
+}
+
+function displayBreadCrumb(breadcrumb, breadcrumbDiv) {
+	var breadCrumbItem;
+	var li;
+	var id;
+	var previousItem;
+	var ul = document.createElement("ul");
+	for (var i = 0; i < breadcrumb.breadCrumbItems.length; i++) {
+		breadCrumbItem = breadcrumb.breadCrumbItems[i];
+		li = document.createElement("li");
+		li.setAttribute("onclick", "search('" + breadCrumbItem.undoUrl + "');");
+		li.setAttribute("class", "breadCrumbItem");
+		li.innerHTML = "[X] " + breadCrumbItem.name;
+		if (typeof(previousItem) == "undefined") {
+			ul.appendChild(li);
+		} else {
+			insertAfter(li, previousItem);
+		}
+		previousItem = li;
+	}
+	id = "b" + Math.floor((Math.random()*100000)+1);
+	ul.style.display = 'block';
+	ul.setAttribute("id", id);
+	breadcrumbDiv.setAttribute("onclick", "toggleBreadCrumbState('" + id + "')");
+	breadcrumbDiv.style.cursor = "pointer";
+	breadcrumbDiv.appendChild(ul);
 }
 
 function displayFacets(facets) {
@@ -133,7 +194,7 @@ function displayFacet(facet, facetDiv) {
 	id = "f" + Math.floor((Math.random()*100000)+1);
 	ul.style.display = 'none';
 	ul.setAttribute("id", id);
-	facetDiv.setAttribute("onclick", "toggleNavigationState('" + id + "')");
+	facetDiv.setAttribute("onclick", "toggleFacetState('" + id + "')");
 	facetDiv.style.cursor = "pointer";
 	facetDiv.appendChild(ul);
 }
@@ -160,7 +221,7 @@ function collapseFacet(id) {
 	return true;
 }
 
-function toggleNavigationState(id){
+function toggleFacetState(id){
 	if (expandedFacet == '') {
 		expandFacet(id);
 	} else if (expandedFacet == id) {
@@ -168,6 +229,30 @@ function toggleNavigationState(id){
 	} else {
 		collapseFacet(expandedFacet);
 		expandFacet(id);
+	}
+	return true;
+}
+
+function expandBreadCrumb(id) {
+	document.getElementById(id).style.display = 'block';
+	expandedBreadCrumb = id;
+	return true;
+}
+
+function collapseBreadCrumb(id) {
+	document.getElementById(id).style.display = 'none';
+	expandedBreadCrumb = '';
+	return true;
+}
+
+function toggleBreadCrumbState(id){
+	if (expandedBreadCrumb == '') {
+		expandBreadCrumb(id);
+	} else if (expandedBreadCrumb == id) {
+		collapseBreadCrumb(id);
+	} else {
+		collapseBreadCrumb(expandedBreadCrumb);
+		expandBreadCrumb(id);
 	}
 	return true;
 }
