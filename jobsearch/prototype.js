@@ -1,6 +1,7 @@
 var apiServer = "http://dev.api.dice.com";
 var lastReportTime = 0;
 var currentSearchUrl;
+var expandedFacet = '';
 
 window.onload = init;
 
@@ -108,6 +109,7 @@ function displayFacets(facets) {
 function displayFacet(facet, facetDiv) {
 	var facetItem;
 	var li;
+	var id;
 	var previousItem;
 	var ul = document.createElement("ul");
 	for (var i = 0; i < facet.facetItems.length; i++) {
@@ -123,20 +125,44 @@ function displayFacet(facet, facetDiv) {
 		}
 		previousItem = li;
 	}
+	id = "f" + Math.floor((Math.random()*100000)+1);
+	ul.style.display = 'none';
+	ul.setAttribute("id", id);
+	facetDiv.setAttribute("onclick", "toggleNavigationState('" + id + "')");
+	facetDiv.style.cursor = "pointer";
 	facetDiv.appendChild(ul);
 }
 
-//create function, it expects 2 values.
 function insertAfter(newElement,targetElement) {
-    //target is what you want it to go after. Look for this elements parent.
     var parent = targetElement.parentNode;
 
-    //if the parents lastchild is the targetElement...
-    if(parent.lastchild == targetElement) {
-        //add the newElement after the target element.
+    if (parent.lastchild == targetElement) {
         parent.appendChild(newElement);
-        } else {
-        // else the target has siblings, insert the new element between the target and it's next sibling.
+    } else {
         parent.insertBefore(newElement, targetElement.nextSibling);
-        }
+    }
+}
+
+function expandFacet(id) {
+	document.getElementById(id).style.display = 'block';
+	expandedFacet = id;
+	return true;
+}
+
+function collapseFacet(id) {
+	document.getElementById(id).style.display = 'none';
+	expandedFacet = '';
+	return true;
+}
+
+function toggleNavigationState(id){
+	if (expandedFacet == '') {
+		expandFacet(id);
+	} else if (expandedFacet == id) {
+		collapseFacet(id);
+	} else {
+		collapseFacet(expandedFacet);
+		expandFacet(id);
+	}
+	return true;
 }
