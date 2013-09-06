@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<project name="jobview" basedir="." default="deploy">
+	<property name="src.dir" value="src"/>
+	<property name="lib.dir" value="lib"/>
+	<property name="web.dir" value="web"/>
+	<property name="class.dir" value="${web.dir}/WEB-INF/classes"/>
+	<property name="name" value="jobview"/>
+	<property name="war.path" value="build"/>
+	<property name="api.lib.dir" value="/opt/apache-tomcat/lib" />
+
+	<path id="master-classpath">
+		<fileset dir="${web.dir}/WEB-INF/lib">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${api.lib.dir}">
+			<include name="servlet-api.jar"/>
+		</fileset>
+		<pathelement path="${class.dir}"/>
+	</path>
+
+	<target name="compile" description="Compile main source tree java files">
+		<mkdir dir="${class.dir}"/>
+		<mkdir dir="${war.path}"/>
+		<javac destdir="${class.dir}" source="1.6" target="1.6" debug="true" includeAntRuntime="false"
+			   deprecation="false" optimize="false" failonerror="true">
+			<src path="${src.dir}"/>
+			<classpath refid="master-classpath"/>
+		</javac>
+	</target>
+
+	<target name="clean" description="Clean output directories">
+		<delete>
+			<fileset dir="${class.dir}">
+				<include name="**/*.class"/>
+			</fileset>
+		</delete>
+		<delete file="${war.path}/${name}.war" />
+	</target>
+
+	<target name="deploy" depends="compile" description="Deploy application as a WAR file to Tomcat">
+		<war destfile="${war.path}/${name}.war" webxml="${web.dir}/WEB-INF/web.xml">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+		</war>
+		<copy file="${war.path}/${name}.war" todir="/opt/apache-tomcat/webapps"/>
+	</target>
+</project>
