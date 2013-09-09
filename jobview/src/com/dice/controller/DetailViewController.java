@@ -21,8 +21,15 @@ public class DetailViewController {
 	@Autowired
 	private DetailViewService detailViewService;
 
+	@RequestMapping(value="/stupid")
+	public String doNothing() {
+		System.out.println("doNothing() called");
+		return "detail";
+	}
+
 	@RequestMapping(value="/view")
 	public String doSearch(@ModelAttribute("search") Search theData, ModelMap modelMap) {
+		System.out.println("doSearch() called");
 		JobDetails details = new JobDetails();
 		detailViewService.getDetails(theData, details);
 		modelMap.addAttribute("details", details);
