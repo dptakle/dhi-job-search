@@ -1,18 +1,14 @@
 package com.dice.controller;
 
+import com.dice.model.JobDetails;
 import com.dice.model.Search;
-import com.dice.reference.RefDistance;
-import com.dice.service.SearchService;
+import com.dice.service.DetailViewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.HttpSessionMutexListener;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * User: duket
@@ -27,12 +23,11 @@ public class DetailViewController {
 
 	@RequestMapping(value="/view")
 	public String doSearch(@ModelAttribute("search") Search theData, ModelMap modelMap) {
-		detailViewService.getJobDetails(theData);
-		modelMap.addAttribute("seekers", searchService.getSeekers());
-		modelMap.addAttribute("resultPageData", searchService.getResultPageData());
-		modelMap.addAttribute("facets", searchService.getFacets());
-		modelMap.addAttribute("displayBreadCrumbList", searchService.getDisplayBreadCrumbList());
+		JobDetails details = new JobDetails();
+		detailViewService.getDetails(theData, details);
+		modelMap.addAttribute("details", details);
 
+		
 		return "detail";
 	}
 }

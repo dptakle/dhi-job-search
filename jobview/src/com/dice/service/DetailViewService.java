@@ -10,5 +10,5 @@ import java.util.List;
  * Time: 7:46 AM
  */
 public interface DetailViewService {
-	public boolean getDetails(Search theData);
+	public boolean getDetails(Search theData, JobDetails details);
 }
