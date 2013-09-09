@@ -20,6 +20,10 @@ body {
 <body>
 
 	<h2>dev.api.dice.com prototype v 0.5</h2>
+	<p>
+      <input type="radio" name="jb" id="dice" value="red" checked="checked" onclick="setJobBoard('dice');">Dice<br>
+      <input type="radio" name="jb" id="rz" value="blue" onclick="setJobBoard('rigzone');">Rigzone<br>
+	</p>
 	<p><input type="text" id="keyword" /> <button onclick="searchWithText();">Search</button> </p>
 	<div id="container">
 	<div id="answer"></div>

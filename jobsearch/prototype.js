@@ -3,11 +3,12 @@ var lastReportTime = 0;
 var currentSearchUrl;
 var expandedFacet = '';
 var expandedBreadCrumb = '';
+var jobBoard = 'dice';
 
 window.onload = init;
 
 function init() {
-	search("/job-search/query.js?page=1&pgcnt=30&callback=displayResults");
+	search("/job-search/" + jobBoard + "/query.js?page=1&pgcnt=30&callback=displayResults");
 }
 
 function search(queryString) {
@@ -39,6 +40,12 @@ function displayCurrentUrl() {
 	console.log(currentSearchUrl);
 }
 
+function setJobBoard(newJobBoard) {
+	document.getElementById('keyword').value = '';
+	jobBoard = newJobBoard;
+	init();
+}
+
 function searchWithText() {
 	var wrk = currentSearchUrl.split("?");
 	var query = ""
@@ -62,7 +69,7 @@ function searchWithText() {
 		}
 		query += "text=";
 		query += encodeURIComponent(document.getElementById('keyword').value);
-		query = "/job-search/query.js" + query;
+		query = "/job-search/" + jobBoard + "/query.js" + query;
 		search(query);
 	} else {
 		console.log("wrk length is " + wrk.length);
