@@ -11,6 +11,6 @@ public class Search {
 	}
 
 	public void setK(String k) {
-		this.t = k;
+		this.k = k;
 	}
 }

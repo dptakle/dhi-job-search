@@ -31,9 +31,16 @@ public class JobDetails {
 	public void setDatePosted(String datePosted) {
 		this.datePosted = datePosted;
 	}
+	public String getFormattedLocation() {
+		return formattedLocation;
+	}
+	public void setFormattedLocation(String formattedLocation) {
+		this.formattedLocation = formattedLocation;
+	}
 	private String jobTitle;
 	private String jobDescription;
 	private String companyName;
 	private String skills;
 	private String datePosted;
+	private String formattedLocation;
 }

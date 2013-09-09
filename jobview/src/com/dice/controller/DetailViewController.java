@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
@@ -16,18 +17,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  * Time: 7:50 AM
  */
 @Controller
-@SessionAttributes("search")
 public class DetailViewController {
 	@Autowired
 	private DetailViewService detailViewService;
 
-	@RequestMapping(value="/stupid")
-	public String doNothing() {
-		System.out.println("doNothing() called");
-		return "detail";
-	}
-
-	@RequestMapping(value="/view")
+	@RequestMapping(value="/detail.html", method = RequestMethod.GET)
 	public String doSearch(@ModelAttribute("search") Search theData, ModelMap modelMap) {
 		System.out.println("doSearch() called");
 		JobDetails details = new JobDetails();

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -1649,7 +1650,7 @@ var reportJobPanelReportedShow = function () {
 <!-- END OVERVIEW COLUMN -->
 <!-- BEGIN DESCRIPTION COLUMN -->
 <div id="descriptionCol">
-	<h1 id="jobTitle">Wireless Network Admin</h1>
+	<h1 id="jobTitle">${details.jobTitle}</h1>
     <div class="djvBtnContainer">
 	    <ul class="overviewButtons">
 		    <li><a class="saveButton" id="saveJob" href="#" title="Save Job">Save Job</a></li>
@@ -1748,7 +1749,7 @@ var reportJobPanelReportedShow = function () {
 	    <div class="pane">
 	    	<dl class="first">
 	            <dt>Location:</dt>
-	            <dd>Hercules, CA&nbsp;</dd>
+	            <dd>${details.formattedLocation}&nbsp;</dd>
 	        </dl>
 	        <dl>
 	            <dt>Area Code:</dt>
@@ -1766,7 +1767,7 @@ var reportJobPanelReportedShow = function () {
 	    <div class="pane">
 	        <dl>
 	            <dt>Skills:</dt>
-	            <dd>Global Wireless service, PM skills&nbsp;</dd>
+	            <dd>${details.skills}</dd>
 	        </dl>
 	    </div>
 	    <div class="pane">
@@ -1798,7 +1799,7 @@ var reportJobPanelReportedShow = function () {
 	        </dl>
 	    </div>
     </div>
-    <div id="detailDescription"><p>We currently have an immediate requirement for a <strong>Wireless Network Admin</strong> in <strong>Hercules, CA</strong>. This is a <strong>contract</strong> position.</p><p><strong><br />Responsibilities include:</strong></p><ul><li>Develop and implement Global Wireless service solution to remote client offices to support the existing and newly agreed upon SSID&rsquo;s and the warehouse functions (e.g. barcode guns, etc.).</li><li>Develop Wireless roadmap and update existing wireless standards with detailed equipment list (BOM) approved for implementation. List will include itemized part numbers and prices.</li><li>Develop and document service catalog approach with detailed process to implement the solution including prerequisites for implementation (e.g. LAN must be standard, need facilities layout (floor plan), CSVnp, Support strategy, performance expectations, etc.)</li><li>Develop and document Wireless Site Survey documentation identifying what each wireless site survey must include (at a minimum) and the purpose/value different types of surveys provide.</li><li>Project Manage and implement client&rsquo;s global standard wireless solution at all Mariposa Deployment 2 (D2) sites (approximately 10 sites globally).</li><li>At a minimum, coordinate/project manages all aspects of the implementation (e.g. procurement, communications, acceptance sign off, PMO documentation, qualification and design documentation, Monitoring, etc.)</li><li>Complete wireless site survey, design, procurement of equipment, setup of monitoring, completion of design documentation, training, etc.</li></ul><p><strong><br />Skills required include:</strong></p><ul><li>This is a very high priority project. The person needs to be Senior with some PM skills.</li></ul><p><strong><br />Additional information:</strong></p><ul><li><strong>W2 only </strong></li><li><strong>Local candidates only </strong></li><li>Interview requirements: Phone screen followed by In-person</li></ul><p><br />Please email your resume to <strong>medha@maxonic.com </strong>code <strong>JO#9771</strong> in the subject of the email, call 408-648-2010 or click &lsquo;Apply Now&rsquo; below.</p><p><br />Since 2002, Maxonic has provided IT staffing services to clients throughout the US and Canada. We have a reputation of being both highly professional and ethical. All of our requirements are from direct clients.</p></div>
+    <div id="detailDescription"><p>${details.jobDescription}</p></div>
     <div id="contactInfo">
         
         

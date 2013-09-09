@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DetailViewServiceImpl implements DetailViewService {
-	private Search theData;
-
 	public boolean getDetails(Search theData, JobDetails details) {
 		try {
+			System.out.println("getDetails() called with k=" + theData.getK());
 			details.setCompanyName("Howard Foundation");
 			details.setDatePosted("09-01-2013");
 			details.setJobDescription("Job text block");
 			details.setJobTitle("Genetics Tech Level IV");
 			details.setSkills("Use instruments");
+			details.setFormattedLocation("Ankeny, IA");
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
