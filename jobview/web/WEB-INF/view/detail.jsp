@@ -12,7 +12,7 @@
     
     
     
-        <title>Wireless Network Admin - Maxonic, Inc. - Hercules, CA | dice.com - 9-5-2013</title>
+        <title>${details.jobTitle} - ${details.companyName} - ${details.formattedLocation}</title>
 
             <link rel="stylesheet" href="http://assets.dice.com/assets/diceYUI/assets/skins/dice/skin2.css" type="text/css" />
             <link rel="stylesheet" href="http://assets.dice.com/assets/stylesheets/mercury3.css" type="text/css" />
@@ -1458,10 +1458,13 @@ var reportJobPanelReportedShow = function () {
 <div id="jobPanel">
 <div class="pane">
 
+<!--
 <ul class="previousResultsBTN">
 	<li><a class="previousButton" href="http://www.dice.com/job/results?caller=basic&x=all&p=" id="backResults1">Back to Search Results</a></li>
 </ul>
+-->
 
+    <!-- 
     <div class="companyLogo">
         
             
@@ -1475,9 +1478,7 @@ var reportJobPanelReportedShow = function () {
 
 
     <div id="companyPanel">
-        <!-- BEGIN MARKUP EXAMPLE -->
         <div id="companyButtons" >
-            <!-- BEGIN - NOT CONNECTED - COMPANY AND RECRUITER -->
             
                 <ul class="overviewButtons">
                     
@@ -1497,44 +1498,38 @@ var reportJobPanelReportedShow = function () {
                 </ul>
             
 
-            <!-- END - NOT CONNECTED - COMPANY AND RECRUITER -->
             
                 
                     
                     
-                        <!-- BEGIN - NOT FOLLOWING COMPANY -->
                         <ul class="overviewButtons">
                             <li><a class="notFollowingButton" id="joinNetworkJS" href="#">Follow Maxonic, Inc.</a></li>
                         </ul>
-                        <!-- END - NOT FOLLOWING COMPANY -->
                     
                 
             
 
 
-            <!-- BEGIN VIEW PROFILE - BOTH AVAILABLE -->
             <ul class="overviewButtons">
                 
                     
                     
-                        <li><a class="company" href="http://www.dice.com/jobsearch/company/DiceId_10108942/Maxonic%2C+Inc.">Company Profile<!--Profile for Maxonic, Inc.--></a></li
+                        <li><a class="company" href="http://www.dice.com/jobsearch/company/DiceId_10108942/Maxonic%2C+Inc.">Company Profile</a></li
                                 >
                 
                 
             </ul>
 
-            <!-- END VIEW PROFILE - BOTH AVAILABLE -->
 
             <ul class="overviewButtons">
                 <li><a class="findMoreButton" href="http://www.dice.com/job/results/maxonic-inc-10108942?x=all&p=d" id="findMore">More jobs with Maxonic, Inc.</a></li>
             </ul>
         </div>
-        <!-- END MARKUP EXAMPLE -->
-
     </div>
+    -->
 
 
-<script type="text/javascript">
+<!-- script type="text/javascript">
     /*
      Initialize and render the MenuBar when its elements are ready
      to be scripted.
@@ -1556,7 +1551,7 @@ var reportJobPanelReportedShow = function () {
          */
         oMenuBar.render();
     });
-</script>
+</script -->
 <script type="text/javascript">
     /*
      Initialize and render the MenuBar when its elements are ready
@@ -1582,7 +1577,7 @@ var reportJobPanelReportedShow = function () {
 </script>
     
         <div id="similarJobsViewed" class="noPrint">
-            <h1>More Jobs Like This</h1>
+            <h1>Recommendations</h1>
             <div class="jobListContainer" style="clear:left;">
                 
                     <div class="jobListJob">
@@ -1605,15 +1600,8 @@ var reportJobPanelReportedShow = function () {
                         NetSource, Inc. - San Francisco, CA US
                     </div>
                 
-                    <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/10411276/289002" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Service Line Manager</a>
-                        K-Tek Resourcing LLC - Sunnyvale, CA US
                     </div>
-                
-                    <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/RTX14ef54/284502" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Sr. Consultant - Professional (limited travel)</a>
-                        Egnyte Inc - Mountain View, CA US
-                    </div>
+                <!-- 
                 
                 <div class="similarJobsLinks">
                     
@@ -1625,11 +1613,13 @@ var reportJobPanelReportedShow = function () {
 		                <li><a class="previousButton" href="#" id="matchJobAlert" name="matchJobAlert">Email me more jobs like this</a></li>
 		            </ul>
 		            <div style="display:none;" id="matchJobAlertDiv"></div>
+                 -->
 		        
             </div>
         </div>
     
 
+<!-- 
     <div class="facebookReferrals">
         <h2>Dice Instant Referrals</h2>
         <div class="facebookLine">Powered by Facebook</div>
@@ -1642,6 +1632,7 @@ var reportJobPanelReportedShow = function () {
             </div>
         </div>
     </div>
+ -->
 
 
 </div>
@@ -1651,6 +1642,7 @@ var reportJobPanelReportedShow = function () {
 <!-- BEGIN DESCRIPTION COLUMN -->
 <div id="descriptionCol">
 	<h1 id="jobTitle">${details.jobTitle}</h1>
+	<!--
     <div class="djvBtnContainer">
 	    <ul class="overviewButtons">
 		    <li><a class="saveButton" id="saveJob" href="#" title="Save Job">Save Job</a></li>
@@ -1672,7 +1664,6 @@ var reportJobPanelReportedShow = function () {
         </div>
     </div>
     <div class="jobBtns">
-		<!-- Start Social -->
 		
 		    <div id="socialShareLinks">
 		        <table>
@@ -1716,12 +1707,12 @@ var reportJobPanelReportedShow = function () {
 		        </script>
 		    </div>
 		
-		<!-- End Social -->
     	<ul class="overviewButtons">
     		<li><a class="shareButton" id="emailFriend1" href="http://www.dice.com/jobsearch/servlet/JobSearch?op=305&dockey=xml/c/0/c05297b0ea8ae44ae1957c46166d3095&source=19&ral=http://www.dice.com/job/result/10108942/9771?src=19">Share Job With Others</a></li>
     	</ul>
     	<div class="clear"></div>
     </div>
+	-->
         
         
         
@@ -1752,16 +1743,16 @@ var reportJobPanelReportedShow = function () {
 	            <dd>${details.formattedLocation}&nbsp;</dd>
 	        </dl>
 	        <dl>
-	            <dt>Area Code:</dt>
-	            <dd>925&nbsp;</dd>
+	            <dt>&nbsp;</dt>
+	            <dd>&nbsp;</dd>
 	        </dl>
 	        <dl>
-	            <dt>Telecommute:</dt>
-	            <dd>no&nbsp;</dd>
+	            <dt>&nbsp;</dt>
+	            <dd>&nbsp;</dd>
 	        </dl>
 	        <dl>
-	            <dt>Travel Required:</dt>
-	            <dd>none&nbsp;</dd>
+	            <dt>&nbsp;</dt>
+	            <dd>&nbsp;</dd>
 	        </dl>
 	    </div>
 	    <div class="pane">
@@ -1770,6 +1761,7 @@ var reportJobPanelReportedShow = function () {
 	            <dd>${details.skills}</dd>
 	        </dl>
 	    </div>
+	    <!-- 
 	    <div class="pane">
 	    	<dl>
 	            <dt>Pay Rate:</dt>
@@ -1798,30 +1790,23 @@ var reportJobPanelReportedShow = function () {
 	            <dd>10108942&nbsp;</dd>
 	        </dl>
 	    </div>
+	     -->
     </div>
     <div id="detailDescription"><p>${details.jobDescription}</p></div>
     <div id="contactInfo">
         
         
-            <div style="margin-bottom:.5em;">Maxonic, Inc.</div>
+            <div style="margin-bottom:.5em;"><${details.companyName}</div>
         
         
         
         
             <div style="margin-bottom:.5em;"> </div>
         
-        
-            <div style="margin-bottom:.5em;">Phone: (408) 648-2010</div>
-        
-        
-        
-        
-        
-            <div style="margin-bottom:.5em;">Web: <a href="http://www.maxonic.com" target="_blank" rel="nofollow">http://www.maxonic.com</a></div>
-        
     </div>
 
     
+    <!-- 
     <div class="djvBtnContainer">
 	    <div id="applyNowButton">
 	        
@@ -1834,6 +1819,7 @@ var reportJobPanelReportedShow = function () {
 	        
 	    </div>
     </div>
+     -->
 
     
     
