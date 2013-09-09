@@ -1601,6 +1601,30 @@ var reportJobPanelReportedShow = function () {
                     </div>
                 
                     </div>
+            <h1>More Like This</h1>
+            <div class="jobListContainer" style="clear:left;">
+                
+                    <div class="jobListJob">
+                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/10104943/45396BR-0" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Job location: San Jose, CA</a>
+                        PwC - San Jose, CA US
+                    </div>
+                
+                    <div class="jobListJob">
+                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/10115700a/323161" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Wireless network Deploymnet Project Manager</a>
+                        Randstad Technologies - Hercules, CA US
+                    </div>
+                
+                    <div class="jobListJob">
+                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/itca001/13111" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Devops / Software Configuration Management(SCM) Engineer/Atlassian Tools Administrator</a>
+                        Ascent Services Group - San Francisco, CA US
+                    </div>
+                
+                    <div class="jobListJob">
+                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/NETSO/3690" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Procurement Specialist</a>
+                        NetSource, Inc. - San Francisco, CA US
+                    </div>
+                
+                    </div>
                 <!-- 
                 
                 <div class="similarJobsLinks">
