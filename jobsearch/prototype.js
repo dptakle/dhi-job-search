@@ -52,7 +52,7 @@ function searchWithText() {
 	if (wrk.length == 2) {
 		var params = wrk[1].split("&");
 		for (var i = 0; i < params.length; i++) {
-			if (params[i].indexOf("random=") == -1 && params[i].indexOf("page=") == -1) {
+			if (params[i].indexOf("random=") == -1 && params[i].indexOf("page=") == -1 && params[i].indexOf("text=") == -1) {
 				if (query.length == 0) {
 					query += "?";
 				} else {

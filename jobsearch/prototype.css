@@ -1,11 +1,12 @@
 body {
 	margin-left: 40px;
 	margin-right: 40px;
+	font-family: Arial, Courier;
 }
 div#container {
 	margin-left: auto ;
 	margin-right: auto ;
-	font-family: Courier;
+	font-family: Arial, Courier;
 	/*border: 1px solid #d9d9d9;*/
 }
 div#answer {
