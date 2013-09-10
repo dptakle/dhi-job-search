@@ -1,5 +1,7 @@
 package com.dice.model;
 
+import com.dice.util.Config;
+
 public class ResultItem {
 	private String detailUrl;
 	private String jobTitle;
@@ -21,8 +23,9 @@ public class ResultItem {
 	}
 
 	public String getDetailUrl() {
-		//return detailUrl;
-		return "http://localhost:8080/jobview/detail.html?k=" + id;
+		StringBuilder buf = new StringBuilder();
+		buf.append("http://").append(Config.get("jobview.server")).append("/jobview/detail.html?k=").append(id);
+		return buf.toString();
 	}
 
 	public void setDetailUrl(String detailUrl) {

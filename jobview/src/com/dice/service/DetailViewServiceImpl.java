@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Properties;
 
 import com.dice.model.*;
+import com.dice.util.Config;
 import com.google.gson.Gson;
 
 import org.springframework.stereotype.Service;
@@ -23,7 +24,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DetailViewServiceImpl implements DetailViewService {
-	private static String jobViewServer = null;
 	private static final String detailUrl = "http://dev.api.dice.com/job-search/dice/detail?dockey=";
 	private static final String mltUrl = "http://dev.api.dice.com/job-search/dice/mlt?id=";
 	private static final String recommendationUrl = "http://dhi-services-elb-962965289.us-east-1.elb.amazonaws.com:8080/dhi.aws.data.service/recojobsbyjob/?verbose=1&dockey=";
@@ -166,7 +166,7 @@ public class DetailViewServiceImpl implements DetailViewService {
             	currentRecommendation.setJobTitle(job.getJob_title());
             	currentRecommendation.setLocation(job.getCity() + ", " + job.getRegion());
             	currentRecommendation.setScore(job.getCf_score());
-            	currentRecommendation.setUrl("http://" + getJobViewServer()  + "/jobview/detail.html?k=" + job.getJob_doc_key().trim());
+            	currentRecommendation.setUrl("http://" + Config.get("jobview.server")  + "/jobview/detail.html?k=" + job.getJob_doc_key().trim());
             	recommendations.add(currentRecommendation);
             }
 			return recommendations;
@@ -355,18 +355,4 @@ public class DetailViewServiceImpl implements DetailViewService {
 		}
 	}
 
-	private static synchronized String getJobViewServer() {
-		if (jobViewServer == null) {
-			Properties props = new Properties();
-			try {
-				props.load(new FileReader("/etc/dhi/conf/jobview.properties"));
-				jobViewServer = props.get("jobview.server").toString().trim();
-			} catch (Exception e) {
-				e.printStackTrace();
-				jobViewServer = "www.takle.org";
-			}
-			
-		}
-		return jobViewServer;
-	}
 }

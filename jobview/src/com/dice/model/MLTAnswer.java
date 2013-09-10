@@ -1,6 +1,5 @@
 package com.dice.model;
 
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

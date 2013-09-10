@@ -12,8 +12,9 @@ import java.util.Properties;
  * Time: 1:14 PM
  */
 public class Config {
-	protected static final String CONFIG = "/etc/dice/conf/webapps/solrprof.properties";
+	protected static final String CONFIG = "/etc/dhi/conf/jobview.properties";
 	protected static Hashtable<String, String> config = null;
+	private static String jobViewServer = null;
 
 	public static synchronized boolean initialize() {
 		Properties props;
