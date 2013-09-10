@@ -1,5 +1,9 @@
 package com.dice.model;
 
+import java.util.List;
+
+import com.dice.service.DetailViewServiceImpl.Recommendation;
+
 public class JobDetails {
 	public String getJobTitle() {
 		return jobTitle;
@@ -37,10 +41,27 @@ public class JobDetails {
 	public void setFormattedLocation(String formattedLocation) {
 		this.formattedLocation = formattedLocation;
 	}
+	
+	public List<Recommendation> getRecommendations() {
+		return recommendations;
+	}
+	public void setRecommendations(List<Recommendation> recommendations) {
+		this.recommendations = recommendations;
+	}
+
+	public List<ResultItem> getMltItems() {
+		return mltItems;
+	}
+	public void setMltItems(List<ResultItem> mltItems) {
+		this.mltItems = mltItems;
+	}
+
 	private String jobTitle;
 	private String jobDescription;
 	private String companyName;
 	private String skills;
 	private String datePosted;
 	private String formattedLocation;
+	private List<Recommendation> recommendations;
+	private List<ResultItem> mltItems;
 }

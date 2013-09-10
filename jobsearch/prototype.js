@@ -1,3 +1,4 @@
+var jobViewStub = "http://localhost:8080/jobview/detail.html?k=";
 var apiServer = "http://dev.api.dice.com";
 var lastReportTime = 0;
 var currentSearchUrl;
@@ -92,7 +93,7 @@ function displayResults(answer) {
 		var result = answer.results[i];
 		var div = document.createElement("div");
 		div.setAttribute("class", "resultItem");
-		div.innerHTML = "<a href=\"" + result.detailUrl + "\" target=\"dicedetail\">" + result.jobTitle + "</a> " + result.company + " " + result.location;
+		div.innerHTML = "<a href=\"" + jobViewStub + result.id + "\" target=\"dicedetail\">" + result.jobTitle + "</a> " + result.company + " " + result.location;
 		if (resultsDiv.childElementCount == 0) {
 			resultsDiv.appendChild(div);
 		} else {

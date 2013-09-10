@@ -1579,52 +1579,23 @@ var reportJobPanelReportedShow = function () {
         <div id="similarJobsViewed" class="noPrint">
             <h1>Recommendations</h1>
             <div class="jobListContainer" style="clear:left;">
-                
+				<c:forEach items="${details.recommendations}" var="currentRecommendation">
                     <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/10104943/45396BR-0" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Job location: San Jose, CA</a>
-                        PwC - San Jose, CA US
+                        <a class="jobListJobTitle" href="${currentRecommendation.url}">${currentRecommendation.jobTitle}</a>
+                        ${currentRecommendation.location}
                     </div>
-                
-                    <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/10115700a/323161" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Wireless network Deploymnet Project Manager</a>
-                        Randstad Technologies - Hercules, CA US
-                    </div>
-                
-                    <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/itca001/13111" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Devops / Software Configuration Management(SCM) Engineer/Atlassian Tools Administrator</a>
-                        Ascent Services Group - San Francisco, CA US
-                    </div>
-                
-                    <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/NETSO/3690" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Procurement Specialist</a>
-                        NetSource, Inc. - San Francisco, CA US
-                    </div>
-                
-                    </div>
+				</c:forEach>
+            </div>
             <h1>More Like This</h1>
             <div class="jobListContainer" style="clear:left;">
-                
+				<c:forEach items="${details.mltItems}" var="currentMLT">
                     <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/10104943/45396BR-0" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Job location: San Jose, CA</a>
-                        PwC - San Jose, CA US
+                        <a class="jobListJobTitle" href="${currentMLT.detailUrl}">${currentMLT.jobTitle}</a>
+                        ${currentMLT.location}
                     </div>
-                
-                    <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/10115700a/323161" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Wireless network Deploymnet Project Manager</a>
-                        Randstad Technologies - Hercules, CA US
-                    </div>
-                
-                    <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/itca001/13111" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Devops / Software Configuration Management(SCM) Engineer/Atlassian Tools Administrator</a>
-                        Ascent Services Group - San Francisco, CA US
-                    </div>
-                
-                    <div class="jobListJob">
-                        <a class="jobListJobTitle" href="http://www.dice.com/job/result/NETSO/3690" onClick="s.eVar37='related job: job application page';s.linkTrackVars='eVar37,events';s.events=s.linkTrackEvents='event29';s.tl(this,'o','Related Job: Job Application Page');"> Procurement Specialist</a>
-                        NetSource, Inc. - San Francisco, CA US
-                    </div>
-                
-                    </div>
+				</c:forEach>
+            </div>
+             
                 <!-- 
                 
                 <div class="similarJobsLinks">
